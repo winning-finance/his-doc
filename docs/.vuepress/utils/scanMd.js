@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const dirSortConf = require('../dirSortConf.json');
+
 let excludeDir = ['.vuepress'];
 
 let basePath = path.resolve(process.cwd(), './docs');
@@ -14,6 +16,20 @@ module.exports = function scanMd() {
   let res = [];
 
   let dirs = fs.readdirSync(basePath);
+
+  // 根据给出的目录顺序进行排序
+  dirs.sort((a, b) => {
+    if (dirSortConf.indexOf(a) >= 0) {
+      if (dirSortConf.indexOf(b) >= 0) {
+        // 如果a，b在规则上，则直接a，b相比较
+        return dirSortConf.indexOf(a) - dirSortConf.indexOf(b);
+      }
+      // 只有a在的话，默认以a优先
+      return -1;
+    }
+    // 两者都没有被规定，则保持原样
+    return 0;
+  });
 
   //遍历读取到的目录
   for (let i = 0; i < dirs.length; i++) {
