@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Hello VuePress',
   description: 'Just playing around',
-  base: 'hic-doc',
+  base: '/his-doc/',
   themeConfig: {
     // 顶部导航栏
     nav: [
