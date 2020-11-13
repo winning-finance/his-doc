@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# 在github上部署，执行该脚本
+
 # 确保脚本抛出遇到的错误
 set -e
 
