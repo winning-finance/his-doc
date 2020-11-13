@@ -36,5 +36,11 @@ module.exports = {
     // ],
     sidebar: sidebar,
     // sidebar: 'auto',
+    lastUpdated: 'Last Updated',
+
+    repo: 'winning-finance/his-doc',
+    repoLabel: '查看源码',
   },
+
+  dest: './dist',
 };

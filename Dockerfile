@@ -12,7 +12,7 @@ RUN npm install && npm run build
 FROM nginx
 
 # 运行阶段
-COPY --from=builder /test-vue-press/docs/.vuepress/dist /usr/share/nginx/html/
+COPY --from=builder /test-vue-press/dist /usr/share/nginx/html/
 
 MAINTAINER signdigit1<fujunchn@qq.com>
 
