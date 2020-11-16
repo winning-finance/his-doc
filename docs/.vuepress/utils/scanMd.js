@@ -3,7 +3,7 @@ const path = require('path');
 
 const dirSortConf = require('../dirSortConf.json');
 
-let excludeDir = ['.vuepress'];
+let excludeDir = ['.vuepress', 'guide'];
 
 let basePath = path.resolve(process.cwd(), './docs');
 
