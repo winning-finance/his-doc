@@ -11,17 +11,29 @@
  * @param {Array} scanRes
  */
 module.exports = function(scanRes) {
-  return scanRes.map(dir => {
-    let dirname = dir[0];
-    return {
-      title: dirname,
-      collapsable: false,
-      children: dir[1].map((value, index) => {
-        if (value === 'README' || value === 'index') {
-          return `/${dirname}/`;
-        }
+  console.log(scanRes);
+  return scanRes
+    .map(dir => {
+      let dirname = dir[0];
+      // 根据目录区分主标题
+      // return {
+      //   title: dirname,
+      //   collapsable: false,
+      //   children: dir[1].map((value, index) => {
+      //     if (value === 'README' || value === 'index') {
+      //       return `/${dirname}/`;
+      //     }
+      //     return `/${dirname}/${value}`;
+      //   }),
+      // };
+
+      // 临时方案，将目录的主标题去除，包括后面的reduce
+      return dir[1].map((value, index) => {
+        // if (value === 'README' || value === 'index') {
+        //   return `/${dirname}/`;
+        // }
         return `/${dirname}/${value}`;
-      }),
-    };
-  });
+      });
+    })
+    .reduce((pre, cur) => pre.concat(cur), []);
 };
