@@ -3,7 +3,7 @@ home: true
 heroText: 大 his 项目文档
 tagline: null
 actionText: 开始 →
-actionLink: /大his专栏/1.his-cli使用文档
+actionLink: /大his专栏/1.大his项目开发前必读
 features:
   - title: 简洁至上
     details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
