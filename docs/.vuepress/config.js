@@ -5,15 +5,15 @@ let scanRes = scanMd();
 let sidebar = formatSidebar(scanRes);
 
 module.exports = {
-  title: 'Hello VuePress',
-  description: 'Just playing around',
+  title: '大 his 项目文档',
+  description: '大 his 项目文档',
   base: '/his-doc/',
   themeConfig: {
     // 顶部导航栏
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/' },
-      { text: 'External', link: 'https://google.com' },
+      { text: '首页', link: '/' },
+      // { text: 'Guide', link: '/guide/' },
+      // { text: 'External', link: 'https://google.com' },
     ],
     // displayAllHeaders: true,
     sidebarDepth: 2,
