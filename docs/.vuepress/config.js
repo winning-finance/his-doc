@@ -4,7 +4,7 @@ let formatSidebar = require('./utils/formatSidebar');
 let scanRes = scanMd();
 let sidebar = formatSidebar(scanRes);
 
-console.log(sidebar);
+// console.log(sidebar);
 module.exports = {
   title: '大 his 项目文档',
   description: '大 his 项目文档',

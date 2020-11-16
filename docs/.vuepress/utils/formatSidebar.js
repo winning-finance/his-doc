@@ -11,7 +11,7 @@
  * @param {Array} scanRes
  */
 module.exports = function(scanRes) {
-  console.log(scanRes);
+  //   console.log(scanRes);
   return scanRes
     .map(dir => {
       let dirname = dir[0];
