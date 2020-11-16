@@ -15,7 +15,9 @@ let fileTypes = /\.md$/; //只匹配以md结尾的文件
 module.exports = function scanMd() {
   let res = [];
 
-  let dirs = fs.readdirSync(basePath);
+  let dirs = fs
+    .readdirSync(basePath)
+    .filter(value => value !== 'index.md' && value !== 'README.md');
 
   // 根据给出的目录顺序进行排序
   dirs.sort((a, b) => {
