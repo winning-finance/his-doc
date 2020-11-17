@@ -1,3 +1,4 @@
+const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 
@@ -18,7 +19,7 @@ module.exports = function scanMd() {
   let dirs = fs
     .readdirSync(basePath)
     .filter(value => value !== 'index.md' && value !== 'README.md');
-
+  console.log(dirs);
   // 根据给出的目录顺序进行排序
   dirs.sort((a, b) => {
     if (dirSortConf.indexOf(a) >= 0) {
@@ -62,5 +63,6 @@ module.exports = function scanMd() {
       res.push(dirRes);
     }
   }
+  console.log(res)
   return res;
 };

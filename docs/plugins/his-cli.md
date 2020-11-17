@@ -1,4 +1,5 @@
 # his-cli 使用文档
+大his脚手架命令，提供模板下载、子应用模板下载、项目更新等相关功能
 
 ## 开始使用
 
@@ -48,7 +49,7 @@ his new myapp --no-install
 <span title="create sub app in main app">在父项目中创建子项目</span>
 
 ```shell
-his add [options]
+his add [subAppName]
 ```
 
 ```shell
@@ -56,6 +57,11 @@ his add [options]
 his add mySubApp
 ```
 
-#### options
 
-none
+### update
+
+<span title="create sub app in main app">更新子应用中主应用版本及子应用vue相关配置</span>
+
+```shell
+his update
+```
