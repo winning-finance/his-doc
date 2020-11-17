@@ -2,22 +2,22 @@
     "/api/": [
         [
             "",
-            "主框架提供的方法"
+            "主应用提供的接口"
         ],
         {
-            "title": "功能分类",
+            "title": "按功能分类",
             "children": [
                 {
                     "title": "大his子页面相互跳转",
                     "children": [],
                     "sidebarDepth": 2,
-                    "path": "/api/功能分类/大his子页面相互跳转.md"
+                    "path": "/api/按功能分类/大his子页面相互跳转.md"
                 },
                 {
                     "title": "大his页面设置项公共弹窗",
                     "children": [],
                     "sidebarDepth": 2,
-                    "path": "/api/功能分类/大his页面设置项公共弹窗.md"
+                    "path": "/api/按功能分类/大his页面设置项公共弹窗.md"
                 }
             ],
             "sidebarDepth": 2
@@ -25,7 +25,8 @@
         {
             "title": "通信说明",
             "children": [],
-            "sidebarDepth": 2
+            "sidebarDepth": 2,
+            "path": "/api/通信说明.md"
         }
     ],
     "/config/": [
