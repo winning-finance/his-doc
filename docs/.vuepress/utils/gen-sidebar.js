@@ -12,7 +12,7 @@ module.exports = function () {
         r[`/${dir}/`] = fileNames
         return r
     }, {})
-    require('fs-extra').outputFileSync(path.resolve(process.cwd(), 'data.js'), JSON.stringify(sidebar, '', 2))
+    require('fs-extra').outputFileSync(path.resolve(process.cwd(), '.sidebar.json'), JSON.stringify(sidebar, '', 2))
     return sidebar
 }
 
