@@ -29,3 +29,11 @@ EventEmit.$emit('OPEN_HIS_MENU', url, query?string)
 ```js
 EventEmit.$emit('OPEN_HIS_MENU', url, '#/scheduleDetail?tab=0')
 ```
+
+
+### 开发环境使用
+由于开发环境中配置的微应用的entry为`http:localhost:xxxx`,因此要想在开发环境中查看效果，则需要将URL换成需要跳转的菜单的开发环境入口URL
+
+### 生成环境使用
+生产环境直接使用`step1`中查找的服务器相对地址
+

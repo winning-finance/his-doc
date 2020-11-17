@@ -18,9 +18,24 @@ getActionSettingValueByConceptId默认返回一个`promise`，如该设置项已
 
 示例：
 ```js
-  const { getActionSettingValueByConceptId } = this.$root.microAppState // 从主应用获取接口
-  const defaultChrgWinId = await getActionSettingValueByConceptId(CHARG_WINDOW_CONCEPT_ID)
+const { getActionSettingValueByConceptId } = this.$root.microAppState // 从主应用获取接口
+const defaultChrgWinId = await getActionSettingValueByConceptId(CHARG_WINDOW_CONCEPT_ID)
 ```
+
+### 开发环境使用
+  由于该功能与菜单menuId强相关，因此请在主应用中的菜单接口返回的数据中查找到自己菜单页面的menuId
+  
+
+  <img src="../../../assets/img/api-screen-2.jpg" style="box-shadow: 5px 8px 5px #cbcbcb;border: 1px solid #e6e6e6;"/>
+
+  如果项目已部署则可直接在213上访问该页面，copy地址栏中的数字字符串即可。
+  <img src="../../../assets/img/api-screen-3.jpg" style="box-shadow: 5px 8px 5px #cbcbcb;border: 1px solid #e6e6e6;"/>
+
+  将此id替换至service.config.js中配置的该项目的appMenuId
+  <img src="../../../assets/img/api-screen-1.jpg" style="box-shadow: 5px 8px 5px #cbcbcb;border: 1px solid #e6e6e6;"/>
+
+### 生产环境使用
+  无效额外配置
 
 #### 错误提示
 
@@ -29,3 +44,4 @@ getActionSettingValueByConceptId默认返回一个`promise`，如该设置项已
 
 - `获取设置项值失败`
 此报错说明没有获取到设置项的value值，可能是后端接口返回异常，此时先联系本人（强峰）筛查是否是前端原因。
+
