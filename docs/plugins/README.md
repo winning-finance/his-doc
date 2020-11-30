@@ -5,6 +5,8 @@
 
 - his-cli
 
+- winning-micro-app-service
+
 - his-request
 
 - winning-cookie-webpack-plugin
