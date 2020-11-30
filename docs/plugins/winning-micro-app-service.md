@@ -22,7 +22,7 @@ yarn add winning-micro-app-service
 ### serve
 本地开发使用，启动项目。使用his-main的本地npm包
 
-### serve-remote （推荐使用）
+### remote-serve （推荐使用）
 本地开发使用，启动项目 。使用线上的his-main包，其环境都是最新的包括组件库，故此在组件库频繁升级的情况下，不用更新项目中的npm包即可使用最新环境。
 
 ### build 
