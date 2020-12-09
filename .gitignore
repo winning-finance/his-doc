@@ -1,3 +1,7 @@
 node_modules
 
 dist
+
+.sidebar.json
+
+.DS_Store
