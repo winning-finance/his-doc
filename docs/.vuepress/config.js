@@ -3,7 +3,7 @@ const sidebar = require('./utils/gen-sidebar')()
 module.exports = {
   title: '大his项目前端手册',
   description: '大 his 项目文档',
-  base: '/',
+  base: '/his-doc',
   themeConfig: {
     nav: [
       { text: '指南', link: '/guide/' },
