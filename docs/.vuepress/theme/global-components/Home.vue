@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-14 21:28:56
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-15 11:27:48
+ * @LastEditTime: 2020-12-16 21:47:49
  * @FilePath: /his-doc/docs/.vuepress/theme/global-components/Home.vue
 -->
 <template>
@@ -16,7 +16,12 @@
           开发his产品，请务必好好阅读此文档，做到知己知彼
         </li>
         <li>
-          <button class="his-start-btn">快速开始 →</button>
+          <button class="his-start-btn">
+            <router-link to="/guide"
+                         style="color: #fff;">
+              快速开始 →
+            </router-link>
+          </button>
         </li>
       </ul>
     </section>
@@ -31,7 +36,12 @@
               {{desc.text}}
             </dd>
             <dd>
-              <button class="his-index-desc-item-btn">去看看 →</button>
+                <router-link :to="desc.link"
+                         style="color: #fff;">
+              <button class="his-index-desc-item-btn">
+                  去看看 →
+                </button>
+                </router-link>
             </dd>
           </dl>
         </li>
@@ -52,15 +62,15 @@ export default {
       descList: [{
         name: '指南',
         text: '了解his产品的前世今生和其所采用的技术方案，帮助开发人员建立全局的开发观念',
-        link: ''
+        link: '/guide'
       }, {
         name: '工具',
         text: '为保持his项目的统一，方便后续代码维护、修改、同时为解决减少重复开发的问题、提高开发效率，我们开发了部分工具',
-        link: ''
+        link: '/tool'
       }, {
         name: 'UI规范',
         text: 'HIS(医院管理系统)作为一个整体的系统，在整体产品形象展示必须统一，公共的UI标准，请在此查看',
-        link: ''
+        link: '/standard'
       }]
     }
   }
@@ -74,6 +84,8 @@ export default {
     background-color: #f5f6f8;
     &-content {
       text-align: center;
+      margin: 0!important;
+      padding: 0!important;
     }
     &-title {
       font-size: 42px;
@@ -107,7 +119,7 @@ export default {
         flex: 1;
         // border: 1px solid #329aff;
         padding: 20px 36px;
-        min-height: calc(100vh - 636px);
+        min-height: calc(100vh - 668px);
         &-name {
           color: #333;
           font-size: 24px;

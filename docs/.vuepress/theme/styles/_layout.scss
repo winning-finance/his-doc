@@ -1,5 +1,11 @@
 .doc {
   &-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
     display: flex;
     background-color: #fff;
     align-items: center;
@@ -7,10 +13,11 @@
     box-shadow: 0 8px 24px -2px rgba(0,0,0,.05);
     height: 64px;
     padding: 0 60px;
+    z-index: 109;
     &-logo {
       font-weight: 400;
       & > a {
-        text-decoration: none;
+        text-decoration: none!important;
       }
       & > a > img {
         display: inline-block;
@@ -29,6 +36,11 @@
       line-height: 60px;
       &-item {
         margin-left: 30px;
+        & .router-link-active {
+          color: #329aff;
+          font-weight: 700;
+          border-bottom: 3px solid #329aff;
+        }
         &-link {
           color: #4d5164;
           text-decoration: none;
@@ -36,10 +48,61 @@
           height: 100%;
           padding: 0 10px;
           &:hover {
-            color:  #329aff;
+            color: #56a5f3;
+            text-decoration: none;
           }
         }
       }
+    }
+  }
+  &-aside {
+    position: fixed;
+    background-color: #fff;
+    left: 0;
+    bottom: 0;
+    top: 60px;
+    width: 300px;
+    z-index: 99;
+    padding-top: 50px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.22);
+    &-nav {
+      // padding-left: 40px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      & > li {
+        padding-left: 40px;
+        list-style: none;
+      }
+      & a {
+        color: #454d64;
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 0;
+        &:hover {
+          color: #56a5f3;
+          font-weight: 700;
+        }
+      }
+      & .router-link-exact-active {
+        color: #329aff;
+        font-weight: 700;
+        border-right: 3px solid #329aff;
+        background: linear-gradient(270deg,#e3effb,rgba(248,250,255,0));
+        &:hover {
+          color: #329aff;
+        }
+      }
+    }
+  }
+  &-main {
+    &-md {
+      padding-left: 350px;
+      padding-right: 58px;
+      padding-top: 80px;
+      padding-bottom: 40px;
     }
   }
 }
