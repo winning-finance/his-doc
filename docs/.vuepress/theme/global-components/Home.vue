@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-14 21:28:56
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-16 21:47:49
+ * @LastEditTime: 2020-12-17 15:31:59
  * @FilePath: /his-doc/docs/.vuepress/theme/global-components/Home.vue
 -->
 <template>
@@ -114,6 +114,7 @@ export default {
       display: flex;
       padding: 0;
       margin: 50px 0;
+      list-style: none;
       &-item {
         text-align: center;
         flex: 1;

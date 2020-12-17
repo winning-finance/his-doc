@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-16 20:39:45
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-16 21:40:27
+ * @LastEditTime: 2020-12-17 15:12:16
  * @FilePath: /his-doc/docs/tool/index.md
 -->
 
@@ -17,4 +17,4 @@
 - __winning-micro-app-service__ 未升级之前解决本地开发、构建的工具（新项目已不再使用）
 
 
-目前工具大概有这些，具体文档请去详情页面查看
+目前工具大概有这些，具体文档请去详情页面查看 （部分文档还在完善中）

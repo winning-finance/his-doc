@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-16 10:55:33
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-16 16:26:13
+ * @LastEditTime: 2020-12-17 14:35:09
  * @FilePath: /his-doc/docs/guide/quick-start.md
 -->
 
@@ -30,7 +30,7 @@ __第二步__
 
 如果顺利你将看到这个样子
 
-<img style="max-width: 840px; border: 2px soild #ccc;" src="./imgs/project_gen.jpg" />
+<img src="./imgs/project_gen.jpg" />
 
 如何 npm 下载失败了也没事，自己进入项目 重新install 就可以了
 
@@ -53,7 +53,7 @@ __第四步__
 ```
 如果顺利你将看到这个样子, 你可以修改初始化模版，开发自己的业务了
 
-<img style="max-width: 1140px;" src="./imgs/temp.jpg" />
+<img src="./imgs/temp.jpg" />
 
 __第五步__
 
