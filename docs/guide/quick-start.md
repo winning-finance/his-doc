@@ -2,11 +2,11 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-16 10:55:33
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-17 14:35:09
+ * @LastEditTime: 2020-12-18 17:20:31
  * @FilePath: /his-doc/docs/guide/quick-start.md
 -->
 
-## 初始化
+## 起步
 
 本节主要示范在面对一个新的项目，如何一步步生成项目到本地开发
 
@@ -57,4 +57,6 @@ __第四步__
 
 __第五步__
 
-更多配置信息，请查看 `工具模块`
+**在新建了一个子项目后，如何高效的本地开发调试成为一个重要问题，请看下一篇 [本地开发](./introduction.html)**。
+
+更多配置信息，请查看 [`工具模块`](/tool/)

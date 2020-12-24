@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-14 21:28:56
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-17 15:31:59
+ * @LastEditTime: 2020-12-18 16:32:43
  * @FilePath: /his-doc/docs/.vuepress/theme/global-components/Home.vue
 -->
 <template>
@@ -36,12 +36,22 @@
               {{desc.text}}
             </dd>
             <dd>
+              <template v-if="desc.link">
                 <router-link :to="desc.link"
                          style="color: #fff;">
-              <button class="his-index-desc-item-btn">
-                  去看看 →
-                </button>
+                  <button class="his-index-desc-item-btn">
+                      去看看 →
+                  </button>
                 </router-link>
+              </template>
+
+              <template v-else>
+                <a :href="desc.target" target="_blank">
+                  <button class="his-index-desc-item-btn">
+                      去看看 →
+                  </button>
+                </a>
+              </template>
             </dd>
           </dl>
         </li>
@@ -65,12 +75,16 @@ export default {
         link: '/guide'
       }, {
         name: '工具',
-        text: '为保持his项目的统一，方便后续代码维护、修改、同时为解决减少重复开发的问题、提高开发效率，我们开发了部分工具',
+        text: '为为应对大his项目多变的需求和诸多页面相关功能的一致性，方便后续代码维护、修改、同时为解决减少重复开发的问题、提高开发效率，我们开发了诸多工具',
         link: '/tool'
       }, {
-        name: 'UI规范',
-        text: 'HIS(医院管理系统)作为一个整体的系统，在整体产品形象展示必须统一，公共的UI标准，请在此查看',
+        name: '规范',
+        text: 'HIS(医院管理系统)作为一个整体的系统，在整体产品形象展示必须统一，另外我们达成统一的css和js书写规范和公共的UI标准，请在此查看',
         link: '/standard'
+      }, {
+        name: '业务组件',
+        text: 'wining-components 业务组件库，主要包括业务通用组件、基础组件通用样式, 目前，his产品很多通用组件都放在此项目里',
+        target: 'http://172.16.6.201/webcomponents-finance-common/#/'
       }]
     }
   }
@@ -112,15 +126,17 @@ export default {
     }
     &-desc {
       display: flex;
+      flex-wrap: wrap;
       padding: 0;
       margin: 50px 0;
-      list-style: none;
       &-item {
         text-align: center;
+        width: 400px;
         flex: 1;
         // border: 1px solid #329aff;
-        padding: 20px 36px;
+        padding: 20px;
         min-height: calc(100vh - 668px);
+        list-style: none;
         &-name {
           color: #333;
           font-size: 24px;
@@ -128,7 +144,7 @@ export default {
         &-text {
           line-height: 22px;
           padding: 20px 0;
-          min-height: 70px;
+          min-height: 110px;
           color: #717484;
         }
         &-btn {

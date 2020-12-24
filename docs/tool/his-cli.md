@@ -2,10 +2,10 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-16 21:26:55
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-16 21:40:49
+ * @LastEditTime: 2020-12-18 11:00:48
  * @FilePath: /his-doc/docs/tool/his-cli.md
 -->
-## 脚手架 his-cli
+## his-cli 脚手架 
 
 大his脚手架命令，提供模板下载、子应用模板下载、项目更新等相关功能
 

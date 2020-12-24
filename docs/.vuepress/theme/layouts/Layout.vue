@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-14 21:13:33
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-16 20:46:09
+ * @LastEditTime: 2020-12-18 17:12:13
  * @FilePath: /his-doc/docs/.vuepress/theme/layouts/Layout.vue
 -->
 <template>
@@ -33,6 +33,21 @@ export default {
   created () {
     // console.log(this.$page, this.$site, 'ggg')
   },
+  methods: {
+    sortSideBar (sidebar) {
+      if (!this.currentNav.sort) return sidebar
+      const sortPages = []
+      this.currentNav.sort.forEach(name => {
+        const targetPage = sidebar.find(item => {
+          return item.path === `${this.currentNav.link}${name === 'index' ? '' : (name + '.html')}`
+        })
+        if (targetPage) {
+          sortPages.push(targetPage)
+        }
+      })
+      return sortPages
+    }
+  },
   computed: {
     navs () {
       const { themeConfig: { nav } } = this.$site
@@ -51,16 +66,23 @@ export default {
         if (page.path.indexOf(this.currentNav.link) !== -1) {
           if (!page.headers || !page.headers.length) return
           const validPage = page.headers.find(header => header.level === 2)
-          if (validPage) {
+          if (!validPage) return
+          if (page.path.indexOf('.html') !== -1) {
             sidebar.push({
+              title: validPage.title,
+              path: page.path
+            })
+          } else {
+            sidebar.unshift({
               title: validPage.title,
               path: page.path
             })
           }
         }
       })
+      
       // console.log(sidebar, 'kkk')
-      return sidebar
+      return this.sortSideBar(sidebar)
     },
     content () {
       const { frontmatter: { content } } = this.$page

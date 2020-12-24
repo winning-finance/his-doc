@@ -2,10 +2,10 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-16 21:30:11
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-16 21:33:38
+ * @LastEditTime: 2020-12-18 11:00:59
  * @FilePath: /his-doc/docs/tool/winning-cookie-webpack-plugin.md
 -->
-## webpack 自动登陆
+## webpack 自动登陆插件
 
 插件 winning-cookie-webpack-plugin 使用
 

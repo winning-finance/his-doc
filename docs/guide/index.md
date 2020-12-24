@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-14 22:27:13
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-16 13:27:24
+ * @LastEditTime: 2020-12-18 17:21:32
  * @FilePath: /his-doc/docs/guide/index.md
 -->
 
@@ -68,4 +68,4 @@ __集成__
 
 __同时考虑到his下所有项目都是同技术栈， 主应用通过cdn方式加载了 vue、vuex、vue-router、element-UI等公共资源，子项目无需再下载这些公共依赖__
 
-**确定了技术方案之后，如何高效的本地开发调试成为一个重要问题，请看下一篇 [本地开发](./introduction.html)**。
+**确定了技术方案之后，新建一个子项目试试，请看下一篇 [起步](./quick-start.html)**。
