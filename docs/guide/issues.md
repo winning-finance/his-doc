@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-18 15:54:09
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-18 17:40:52
+ * @LastEditTime: 2020-12-24 16:17:55
  * @FilePath: /his-doc/docs/guide/issues.md
 -->
 
@@ -12,7 +12,7 @@
 
 ### 子页面缓存问题
 
-在 `his-main` 里
+在 `his-main` 里，暂时未提供设置：子应用间菜单切换时，缓存页面的方法。但是目前支持在子应用间切换时缓存页面。如果产品有需要可以将信息发在his前端交流群里。
 
 ### 组件库样式错乱
 
