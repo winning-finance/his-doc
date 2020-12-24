@@ -18,6 +18,7 @@
 - microAppName - String 子应用的name(qiankun)
 - EventEmit - Function 发布订阅器,用于和主应用消息通信
 - getActionSettingValueByConceptId - Function 获取公共设置项value值
+- ActionSettingEvent.subscribe - Function 监听设置项的值 change 变化的钩子函数
 
 如何使用
 
