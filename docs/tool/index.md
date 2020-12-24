@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-16 20:39:45
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-18 13:50:03
+ * @LastEditTime: 2020-12-24 16:40:29
  * @FilePath: /his-doc/docs/tool/index.md
 -->
 
@@ -25,6 +25,13 @@ his产品和后端接口通信的封装
 vue-cli 插件，实现本地开发、构建的核心插件，目前升级的方案全靠此插件，该插件主要扩展了 vue-cli-service serve 命令
 
 [使用和配置 →](./vue-cli-plugin-his.html)
+
+
+### [@winning/micro-app](./micro-app.html)
+
+统一处理、导出、乾坤规范的子应用入口文件
+
+[使用和配置 →](./micro-app.html)
 
 ### [winning-cookie-webpack-plugin 6.0 自动登陆插件](./winning-cookie-webpack-plugin.html)
 
