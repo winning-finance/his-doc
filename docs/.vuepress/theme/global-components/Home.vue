@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-14 21:28:56
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-18 16:32:43
+ * @LastEditTime: 2021-01-05 10:43:50
  * @FilePath: /his-doc/docs/.vuepress/theme/global-components/Home.vue
 -->
 <template>
@@ -84,7 +84,7 @@ export default {
       }, {
         name: '业务组件',
         text: 'wining-components 业务组件库，主要包括业务通用组件、基础组件通用样式, 目前，his产品很多通用组件都放在此项目里',
-        target: 'http://172.16.6.201/webcomponents-finance-common/#/'
+        target: 'http://172.16.6.201/winex/#/'
       }]
     }
   }
