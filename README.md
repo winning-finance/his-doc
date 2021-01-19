@@ -1,3 +1,10 @@
+<!--
+ * @Author: smallalso<hu141418@gmail.com>
+ * @Date: 2020-12-08 18:33:27
+ * @LastEditors: smallalso<hu141418@gmail.com>
+ * @LastEditTime: 2020-12-18 14:28:50
+ * @FilePath: /his-doc/README.md
+-->
 # 使用 vue-press 做的文档项目
 
 ## 如何使用
@@ -15,4 +22,4 @@
 
 ## 注意
 
-- 最终一个文档的标题是取的 md 文件的 h1 标题，而不是文件名。所以这边采用了文件名标序号的方式进行排序
+- 最终一个文档的标题是取的 md 文件的 h2 标题，而不是文件名。所以这边采用了文件名标序号的方式进行排序
