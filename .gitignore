@@ -5,3 +5,5 @@ dist
 .sidebar.json
 
 .DS_Store
+
+*.code-workspace
