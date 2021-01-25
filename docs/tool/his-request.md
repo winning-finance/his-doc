@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-18 11:24:15
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-24 15:02:33
+ * @LastEditTime: 2021-01-12 20:15:31
  * @FilePath: /his-doc/docs/tool/his-request.md
 -->
 ## his-request 请求
@@ -125,7 +125,20 @@ const { user: userInfo, header } = Request.getCookieData()
 }
 ```
 
-二. `clear`
+二. `getPendingRequestMap`
+
+获取所有pending状态的请求
+
+```javascript
+import Request from 'his-request'
+
+/*
+* @return { Map } pending 状态的map对象
+*/
+Request.getPendingRequestMap()
+```
+
+三. `clear`
 
 清除所有pending 状态请求
 
@@ -144,7 +157,7 @@ __建议:__
 - 在temp方法生成具体request的时候可以配置 global 为 true, 表示为全局请求，将不会被取消
 
 
-三. `asyncClear`
+四. `asyncClear`
 
 使用方法同 `clear`, 不过它是一个 promise 对象
 
