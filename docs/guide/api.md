@@ -2,7 +2,7 @@
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-18 13:51:23
  * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-24 15:07:59
+ * @LastEditTime: 2021-01-28 18:34:46
  * @FilePath: /his-doc/docs/guide/api.md
 -->
 
@@ -19,6 +19,7 @@
 - EventEmit - Function 发布订阅器,用于和主应用消息通信
 - getActionSettingValueByConceptId - Function 获取公共设置项value值
 - ActionSettingEvent.subscribe - Function 监听设置项的值 change 变化的钩子函数
+- actionInject.register - Function 注册退出登陆前需要做的事情
 
 如何使用
 
@@ -106,6 +107,18 @@ __第一步：__ 找到正确的菜单页面的menuId
 __第二步:__ 将此id替换至service.config.js中配置的该项目的appMenuId
 
 <img src="./imgs/api-screen-1.jpg" width="720px"/>
+
+__3. 退出登陆前，在页面做业务逻辑__
+```javascript
+// 从主应用获取接口
+const { actionInject } = this.$root.microAppState
+/*
+* @type { Function }
+* @params { String } id 菜单id
+* @params { Promise} promiseObj 做业务逻辑的promise 对象
+*/
+actionInject.register(id, promiseObj)
+```
 
 ### 最后
 
