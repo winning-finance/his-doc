@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HIS-前端开发手册</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/his-doc/favicon.ico">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/his-doc/assets/css/0.styles.cdf22441.css" as="style"><link rel="preload" href="/his-doc/assets/js/app.22b5e6a2.js" as="script"><link rel="preload" href="/his-doc/assets/js/2.7ba0751d.js" as="script"><link rel="preload" href="/his-doc/assets/js/3.9fb4046a.js" as="script"><link rel="prefetch" href="/his-doc/assets/js/10.1f49f70e.js"><link rel="prefetch" href="/his-doc/assets/js/11.0e070e0a.js"><link rel="prefetch" href="/his-doc/assets/js/12.995c4e89.js"><link rel="prefetch" href="/his-doc/assets/js/13.b94d102f.js"><link rel="prefetch" href="/his-doc/assets/js/14.c2593856.js"><link rel="prefetch" href="/his-doc/assets/js/15.3394a636.js"><link rel="prefetch" href="/his-doc/assets/js/16.dfb3dc4b.js"><link rel="prefetch" href="/his-doc/assets/js/17.d5abc34e.js"><link rel="prefetch" href="/his-doc/assets/js/18.52658034.js"><link rel="prefetch" href="/his-doc/assets/js/19.a1959426.js"><link rel="prefetch" href="/his-doc/assets/js/20.74cae65e.js"><link rel="prefetch" href="/his-doc/assets/js/21.02eff616.js"><link rel="prefetch" href="/his-doc/assets/js/22.8845e231.js"><link rel="prefetch" href="/his-doc/assets/js/23.2c5ca559.js"><link rel="prefetch" href="/his-doc/assets/js/24.906c5e52.js"><link rel="prefetch" href="/his-doc/assets/js/25.a2d24017.js"><link rel="prefetch" href="/his-doc/assets/js/4.9a512775.js"><link rel="prefetch" href="/his-doc/assets/js/5.788516a0.js"><link rel="prefetch" href="/his-doc/assets/js/6.bf77db55.js"><link rel="prefetch" href="/his-doc/assets/js/7.3d74ee71.js"><link rel="prefetch" href="/his-doc/assets/js/8.f5802d6f.js"><link rel="prefetch" href="/his-doc/assets/js/9.151a705d.js">
+    <link rel="stylesheet" href="/his-doc/assets/css/0.styles.cdf22441.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><section><div><header class="doc-header"><h2 class="doc-header-logo"><a href="/his-doc/" class="router-link-active"><img src="/his-doc/assets/img/his.647a9dbf.svg" alt=""> <span>前端开发手册</span></a></h2> <ul class="doc-header-nav"><li class="doc-header-nav-item"><a href="/his-doc/guide/" class="doc-header-nav-item-link router-link-active">
+          指南
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/tool/" class="doc-header-nav-item-link">
+          工具
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/standard/" class="doc-header-nav-item-link">
+          规范
+        </a></li></ul></header></div> <main class="doc-main typo doc-main-md"><aside class="doc-aside"><ul class="doc-aside-nav"><li><a href="/his-doc/guide/" class="router-link-active">开始</a></li><li><a href="/his-doc/guide/quick-start.html">起步</a></li><li><a href="/his-doc/guide/introduction.html">本地开发</a></li><li><a href="/his-doc/guide/config.html">配置</a></li><li><a href="/his-doc/guide/api.html" aria-current="page" class="router-link-exact-active router-link-active">API 介绍</a></li><li><a href="/his-doc/guide/issues.html">常见问题</a></li></ul></aside> <div class="content__default"><h2 id="api-介绍"><a href="#api-介绍" class="header-anchor">#</a> API 介绍</h2> <p>这里主要是主应用 <code>his-main</code> 提供给子应用的api 使用文档</p> <h3 id="主应用提供的方法和数据"><a href="#主应用提供的方法和数据" class="header-anchor">#</a> 主应用提供的方法和数据</h3> <ul><li>appSystemId - string 子应用系统ID</li> <li>menuId - String 子应用菜单id</li> <li>microAppEntry - String 子应用entry地址(qiankun)</li> <li>microAppName - String 子应用的name(qiankun)</li> <li>EventEmit - Function 发布订阅器,用于和主应用消息通信</li> <li>getActionSettingValueByConceptId - Function 获取公共设置项value值</li> <li>ActionSettingEvent.subscribe - Function 监听设置项的值 change 变化的钩子函数</li> <li>actionInject.register - Function 注册退出登陆前需要做的事情</li></ul> <p>如何使用</p> <h3 id="一-子应用获取主应用入参数-调用-root"><a href="#一-子应用获取主应用入参数-调用-root" class="header-anchor">#</a> 一. 子应用获取主应用入参数（调用$root）</h3> <p>示例： 获取公共设置项value值</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> getActionSettingValueByConceptId <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$root<span class="token punctuation">.</span>microAppState
+</code></pre></div><h3 id="二-主应用与子应用通信方式"><a href="#二-主应用与子应用通信方式" class="header-anchor">#</a> 二. 主应用与子应用通信方式</h3> <p>目前主框架采用EventEmit与子应用相互通信，主应用对外暴露了EventEmit，子应用可接收调用$emit或者$on通信</p> <p><strong>1. 不同子应用相互跳转</strong></p> <p>事件：</p> <ul><li>OPEN_HIS_MENU ： 打开子应用菜单，适用于子页面之间需要跳转的需求</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 第一步，跳转目标页面path </span>
+<span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">'/web-adt-outpatient/schedulePlay/'</span>
+
+<span class="token comment">// 第二步，通过$root获取主应用注入的EventEmit</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> EventEmit <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$root<span class="token punctuation">.</span>microAppState
+
+<span class="token comment">// 第三步，规定的打开子菜单的消息类型是OPEN_HIS_MENU,使用EventEmit向主应用发送OPEN_HIS_MENU消息,并发送需要调转的URL</span>
+EventEmit<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'OPEN_HIS_MENU'</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> query<span class="token operator">?</span>string<span class="token punctuation">)</span>
+</code></pre></div><p>参数说明：</p> <ul><li>url - String 必须 需要跳转的页面地址</li> <li>query - String 可选 其他参数，例如：需要跳转的页面有子路由，需要跳转定位到具体的子路由，则使用此字段</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code>EventEmit<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'OPEN_HIS_MENU'</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token string">'#/scheduleDetail?tab=0'</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>开发环境</strong>:
+由于开发环境中配置的微应用的entry为http:localhost:xxxx,因此要想在开发环境中查看效果，则需要将URL换成需要跳转的菜单的开发环境入口URL</p> <p><strong>2. 获取/设置大his页面设置项公共弹窗</strong></p> <blockquote><p>大his框架下，各子页面的设置项由主应用统一设置，子应用如需获取，需要调用主应用提供的方法  <code>getActionSettingValueByConceptId</code></p></blockquote> <p>getActionSettingValueByConceptId默认返回一个promise，如该设置项已经设值，则直接返回value值，如该设置项未设置，则弹出设置项选择弹窗，点击确定弹窗关闭后resolve设置项的value值</p> <p><strong>参数说明：</strong> 调用该函数需要传入具体的设置项的conceptId，具体值请找产品刘春咨询，建议将其值定义常量存于项目中，方便后期修改和调用。目前支持传入String和Array。</p> <img src="/his-doc/assets/img/action-setting-dialog.a560c473.png" width="720px"> <p>示例：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 从主应用获取接口</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> getActionSettingValueByConceptId <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$root<span class="token punctuation">.</span>microAppState
+<span class="token comment">/*
+* @type { Function }
+* @params { String | Array }
+* @return { Promise&lt;String | Array&gt; }
+*/</span>
+<span class="token keyword">const</span> defaultChrgWinId <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getActionSettingValueByConceptId</span><span class="token punctuation">(</span><span class="token constant">CHARG_WINDOW_CONCEPT_ID</span><span class="token punctuation">)</span>
+</code></pre></div><br> <p><strong>错误提示</strong></p> <ul><li>获取操作设置项数据失败，无效的操作设置项概念标识: xxxxxx 此报错说明传入的设置项的概念标识不正确，请联系相关人员获取正确的概念标识。</li> <li>获取设置项值失败 此报错说明没有获取到设置项的value值，可能是后端接口返回异常，此时先联系本人（强峰）筛查是否是前端原因。</li></ul> <p><strong>本地开发</strong></p> <blockquote><p>由于该功能与菜单menuId强相关，同时本地开发时，menuId 并不是来源于接口，而是 <code>service.config.js</code> 配置中的 menu 字段，所以确保本地开发时 service.config.js appMenuId 正确尤为重要</p></blockquote> <p><strong>第一步：</strong> 找到正确的菜单页面的menuId</p> <p>在主应用中的菜单接口返回的数据中查找到自己菜单页面的menuId</p> <img src="/his-doc/assets/img/api-screen-2.bd6d2091.jpg" width="720px"> <p>如果项目已部署则可直接在213上访问该页面，copy地址栏中的数字字符串即可</p> <img src="/his-doc/assets/img/api-screen-3.e56df14f.jpg" width="720px"> <p><strong>第二步:</strong> 将此id替换至service.config.js中配置的该项目的appMenuId</p> <img src="/his-doc/assets/img/api-screen-1.e5882f24.jpg" width="720px"> <p><strong>3. 退出登陆前，在页面做业务逻辑</strong></p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 从主应用获取接口</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> actionInject <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$root<span class="token punctuation">.</span>microAppState
+<span class="token comment">/*
+* @type { Function }
+* @params { String } id 菜单id
+* @params { Promise} promiseObj 做业务逻辑的promise 对象
+*/</span>
+actionInject<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> promiseObj<span class="token punctuation">)</span>
+</code></pre></div><h3 id="最后"><a href="#最后" class="header-anchor">#</a> 最后</h3> <p>如需新增功能接口，请联系作者（强峰）</p></div></main> <footer class="doc-footer"></footer></section><div class="global-ui"></div></div>
+    <script src="/his-doc/assets/js/app.22b5e6a2.js" defer></script><script src="/his-doc/assets/js/2.7ba0751d.js" defer></script><script src="/his-doc/assets/js/3.9fb4046a.js" defer></script>
+  </body>
+</html>

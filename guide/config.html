@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HIS-前端开发手册</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/his-doc/favicon.ico">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/his-doc/assets/css/0.styles.cdf22441.css" as="style"><link rel="preload" href="/his-doc/assets/js/app.22b5e6a2.js" as="script"><link rel="preload" href="/his-doc/assets/js/2.7ba0751d.js" as="script"><link rel="preload" href="/his-doc/assets/js/14.c2593856.js" as="script"><link rel="prefetch" href="/his-doc/assets/js/10.1f49f70e.js"><link rel="prefetch" href="/his-doc/assets/js/11.0e070e0a.js"><link rel="prefetch" href="/his-doc/assets/js/12.995c4e89.js"><link rel="prefetch" href="/his-doc/assets/js/13.b94d102f.js"><link rel="prefetch" href="/his-doc/assets/js/15.3394a636.js"><link rel="prefetch" href="/his-doc/assets/js/16.dfb3dc4b.js"><link rel="prefetch" href="/his-doc/assets/js/17.d5abc34e.js"><link rel="prefetch" href="/his-doc/assets/js/18.52658034.js"><link rel="prefetch" href="/his-doc/assets/js/19.a1959426.js"><link rel="prefetch" href="/his-doc/assets/js/20.74cae65e.js"><link rel="prefetch" href="/his-doc/assets/js/21.02eff616.js"><link rel="prefetch" href="/his-doc/assets/js/22.8845e231.js"><link rel="prefetch" href="/his-doc/assets/js/23.2c5ca559.js"><link rel="prefetch" href="/his-doc/assets/js/24.906c5e52.js"><link rel="prefetch" href="/his-doc/assets/js/25.a2d24017.js"><link rel="prefetch" href="/his-doc/assets/js/3.9fb4046a.js"><link rel="prefetch" href="/his-doc/assets/js/4.9a512775.js"><link rel="prefetch" href="/his-doc/assets/js/5.788516a0.js"><link rel="prefetch" href="/his-doc/assets/js/6.bf77db55.js"><link rel="prefetch" href="/his-doc/assets/js/7.3d74ee71.js"><link rel="prefetch" href="/his-doc/assets/js/8.f5802d6f.js"><link rel="prefetch" href="/his-doc/assets/js/9.151a705d.js">
+    <link rel="stylesheet" href="/his-doc/assets/css/0.styles.cdf22441.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><section><div><header class="doc-header"><h2 class="doc-header-logo"><a href="/his-doc/" class="router-link-active"><img src="/his-doc/assets/img/his.647a9dbf.svg" alt=""> <span>前端开发手册</span></a></h2> <ul class="doc-header-nav"><li class="doc-header-nav-item"><a href="/his-doc/guide/" class="doc-header-nav-item-link router-link-active">
+          指南
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/tool/" class="doc-header-nav-item-link">
+          工具
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/standard/" class="doc-header-nav-item-link">
+          规范
+        </a></li></ul></header></div> <main class="doc-main typo doc-main-md"><aside class="doc-aside"><ul class="doc-aside-nav"><li><a href="/his-doc/guide/" class="router-link-active">开始</a></li><li><a href="/his-doc/guide/quick-start.html">起步</a></li><li><a href="/his-doc/guide/introduction.html">本地开发</a></li><li><a href="/his-doc/guide/config.html" aria-current="page" class="router-link-exact-active router-link-active">配置</a></li><li><a href="/his-doc/guide/api.html">API 介绍</a></li><li><a href="/his-doc/guide/issues.html">常见问题</a></li></ul></aside> <div class="content__default"><h2 id="配置"><a href="#配置" class="header-anchor">#</a> 配置</h2> <p>这里讲的配置是升级版方案配置</p> <h3 id="配置文件"><a href="#配置文件" class="header-anchor">#</a> 配置文件</h3> <p><strong>路径:</strong> 项目根目录下 <code>service.config.js</code></p> <p><strong>说明:</strong> 升级版his项目放弃了自定义服务 <code>wms</code>, 依然是基于<code>vue-cli</code>生态, 它依然是基于 <code>vue-cli-service</code> 服务，不过唯一不同的是，它通过插件 <code>vue-cli-plugin-his</code> 扩展了 vue-cli-service 服务，给 vue-cli-service 添加了默认的配置，所以你不用添加配置文件 <code>vue.config.js</code>, 而是直接使用 <code>service.config.js</code>,它的配置也是非常简单。</p> <p>package.json 文件</p> <div class="language-json extra-class"><pre class="language-json"><code>...
+<span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+   <span class="token property">&quot;serve&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue-cli-service serve&quot;</span><span class="token punctuation">,</span>
+   <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue-cli-service build&quot;</span><span class="token punctuation">,</span>
+   <span class="token property">&quot;lint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue-cli-service lint&quot;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+...
+<span class="token property">&quot;devDependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+   <span class="token property">&quot;vue-cli-plugin-his&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xxx&quot;</span><span class="token punctuation">,</span>
+   ...
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h3 id="service-config-js"><a href="#service-config-js" class="header-anchor">#</a> service.config.js</h3> <p><code>service.config.js</code> 是his项目的配置文件，它是必需的，它会被插件<code>vue-cli-plugin-his</code> 自动加载、处理后给 <code>@vue/cli-service</code> 使用。</p> <p>这个文件导出一个包含了选项的对象</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  vueConfig<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// 所有 vue.config.js 的配置都支持</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  cookiePluginOptions<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// 自动登陆配置，非必填，默认登陆 201</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  menu<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// 菜单配置，模拟菜单接口数据，必填</span>
+    appSystemId<span class="token operator">:</span> <span class="token string">'4303253901'</span><span class="token punctuation">,</span>
+    appMenuName<span class="token operator">:</span> <span class="token string">'患者管理'</span><span class="token punctuation">,</span>
+    appMenuList<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token string">'welcome'</span><span class="token punctuation">,</span>
+        appMenuCode<span class="token operator">:</span> <span class="token string">'399203507'</span><span class="token punctuation">,</span>
+        appMenuId<span class="token operator">:</span> <span class="token string">'106667170654810113'</span><span class="token punctuation">,</span>
+        appMenuRelativeUri<span class="token operator">:</span> <span class="token string">'/welcome/'</span><span class="token punctuation">,</span>
+        appMenuName<span class="token operator">:</span> <span class="token string">'欢迎-his-app'</span><span class="token punctuation">,</span>
+        appMenuList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        appMenuTypeCode<span class="token operator">:</span> <span class="token string">'256053'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token operator">...</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>是的，它只有三个选项</p> <ul><li><code>vueConfig</code></li></ul> <p>所有 <a href="https://cli.vuejs.org/zh/guide/" target="_blank" rel="noopener noreferrer">vue-cli 的选项<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 都支持</p> <p>所以你需要像 <code>vue.config.js</code> 一样配置你的代理和其他特殊的需求</p> <ul><li>cookiePluginOptions</li></ul> <p>自动登陆配置， 它不是必需的</p> <p>默认配置为, 你可以根据需要覆盖</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>cookiePluginOptions<span class="token operator">:</span> <span class="token punctuation">{</span>
+  userInfoParams<span class="token operator">:</span> <span class="token punctuation">{</span>
+    loginURL<span class="token operator">:</span> <span class="token string">'/base/api/v1/base/user/login'</span><span class="token punctuation">,</span>
+    userInfoURL<span class="token operator">:</span> <span class="token string">'/base/api/v1/base/user/get_information'</span><span class="token punctuation">,</span>
+    username<span class="token operator">:</span> <span class="token string">'L10044'</span><span class="token punctuation">,</span>
+    password<span class="token operator">:</span> <span class="token string">'456'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  extraCookies<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'W-FLOW'</span><span class="token operator">:</span> <span class="token string">'canary'</span><span class="token punctuation">,</span>
+    <span class="token string">'W-SEQ'</span><span class="token operator">:</span> <span class="token number">21</span><span class="token punctuation">,</span>
+    <span class="token string">'X-DEBUG'</span><span class="token operator">:</span> <span class="token string">'hybrid'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>menu</li></ul> <p>menu 配置非常重要，它是本地开发子应用的入口文件，</p> <p>按照模版的格式在 <code>appMenuList</code> 里新增就可以了</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>menu<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// 菜单配置，模拟菜单接口数据，必填</span>
+  appSystemId<span class="token operator">:</span> <span class="token string">'4303253901'</span><span class="token punctuation">,</span>
+  appMenuName<span class="token operator">:</span> <span class="token string">'患者管理'</span><span class="token punctuation">,</span>
+  appMenuList<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token string">'welcome'</span><span class="token punctuation">,</span>
+      appMenuCode<span class="token operator">:</span> <span class="token string">'399203507'</span><span class="token punctuation">,</span>
+      appMenuId<span class="token operator">:</span> <span class="token string">'106667170654810113'</span><span class="token punctuation">,</span>
+      appMenuRelativeUri<span class="token operator">:</span> <span class="token string">'/welcome/'</span><span class="token punctuation">,</span>
+      appMenuName<span class="token operator">:</span> <span class="token string">'欢迎-his-app'</span><span class="token punctuation">,</span>
+      appMenuList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      appMenuTypeCode<span class="token operator">:</span> <span class="token string">'256053'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="命令行"><a href="#命令行" class="header-anchor">#</a> 命令行</h3> <p>his项目的命令现在包括 三 个，<code>serve</code>、<code>build</code>、 <code>lint</code></p> <p>其他辅助的命令行配置请看 <a href="/his-doc/tool/vue-cli-plugin-his.html">插件 vue-cli-plugin-his</a></p></div></main> <footer class="doc-footer"></footer></section><div class="global-ui"></div></div>
+    <script src="/his-doc/assets/js/app.22b5e6a2.js" defer></script><script src="/his-doc/assets/js/2.7ba0751d.js" defer></script><script src="/his-doc/assets/js/14.c2593856.js" defer></script>
+  </body>
+</html>
