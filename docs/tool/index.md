@@ -45,6 +45,12 @@ webpack 自动登陆插件, 可结合 webpack.config.js 或 vue.config.js 使用
 
 [使用和配置 →](./winning-micro-app-service.html)
 
+### [winning-dll 组件](./winning-dll.html)
+
+混合框架DLL组件封装
+
+[使用和配置 →](./winning-dll.html)
+
 __注意：__ 新项目已不再使用该方案
 
 目前工具大概有这些，具体文档请去详情页面查看 （部分文档还在完善中）
