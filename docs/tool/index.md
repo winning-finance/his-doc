@@ -1,8 +1,8 @@
 <!--
  * @Author: smallalso<hu141418@gmail.com>
  * @Date: 2020-12-16 20:39:45
- * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-24 16:40:29
+ * @LastEditors: jun.fu<fujunchn@qq.com>
+ * @LastEditTime: 2021-03-17 15:06:20
  * @FilePath: /his-doc/docs/tool/index.md
 -->
 
@@ -50,6 +50,10 @@ webpack 自动登陆插件, 可结合 webpack.config.js 或 vue.config.js 使用
 混合框架DLL组件封装
 
 [使用和配置 →](./winning-dll.html)
+
+### [hot-key 工具](./hot-key.html)
+
+为his提供的一套热键方案
 
 __注意：__ 新项目已不再使用该方案
 
