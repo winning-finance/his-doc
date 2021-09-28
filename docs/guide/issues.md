@@ -12,8 +12,21 @@
 
 ### 子页面缓存问题
 
-在 `his-main` 里，暂时未提供设置：子应用间菜单切换时，缓存页面的方法。但是目前支持在子应用间切换时缓存页面。如果产品有需要可以将信息发在his前端交流群里。
+在 `his-main` 里默认缓存前n个菜单，也就是说每个子应用都可能被缓存。缓存意味着子应用并不会被真正销毁， 所以在菜单切换回当前子应用时并不会走 `create` `mounted` 等hook,但是会激活`deactivated`、`activated` hook, 如果你有定时器类的需求，需要在`deactivated`、`activated` hook里处理。
 
+```javascript
+async mounted () {
+  // 组件激活
+  this.$on('hook:activated', async () => {
+    ...// 其他逻辑
+    this.handleAutoTime() // 添加定时器
+  })
+  // 组件失活时清除定时器
+  this.$on('hook:deactivated', () => this.clearTime())
+},
+```
+
+这一点非常重要
 ### 组件库样式错乱
 
 如果你的项目使用未升级前的开发方案，可能会遇到这个问题

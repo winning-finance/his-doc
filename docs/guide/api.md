@@ -88,7 +88,7 @@ const defaultChrgWinId = await getActionSettingValueByConceptId(CHARG_WINDOW_CON
 __错误提示__
 
 - 获取操作设置项数据失败，无效的操作设置项概念标识: xxxxxx 此报错说明传入的设置项的概念标识不正确，请联系相关人员获取正确的概念标识。
-- 获取设置项值失败 此报错说明没有获取到设置项的value值，可能是后端接口返回异常，此时先联系本人（强峰）筛查是否是前端原因。
+- 获取设置项值失败 此报错说明没有获取到设置项的value值，可能是后端接口返回异常，此时先联系（胡佳义或者协同域产品）筛查是否是前端原因。
 
 __本地开发__
 
@@ -108,7 +108,58 @@ __第二步:__ 将此id替换至service.config.js中配置的该项目的appMenu
 
 <img src="./imgs/api-screen-1.jpg" width="720px"/>
 
-__3. 退出登陆前，在页面做业务逻辑__
+__注意事项:__ 由于大HIS所有产品都需要在切换菜单（子应用）时 保持页面不刷新，目前实现不刷新的原理是保持子应用`keep-alive`, 那么在菜单切换回当前子应用时并不会走 `create` `mounted` 等hook,但是会激活`deactivated` `activated` hook, 所以像调取公共弹窗这类的逻辑需要考虑到这个问题。
+
+示例：(药师审方)
+```javascript
+async mounted () {
+  // 组件激活
+  this.$on('hook:activated', async () => {
+    // 如果没有库房信息则重新获取
+    if (!this.winId) { 
+      await this.getOrgId() 
+    }
+    this.handleAutoTime() // 添加定时器
+  })
+  // 组件失活时清除定时器
+  this.$on('hook:deactivated', () => this.clearTime())
+  try {
+    ...
+    await this.getOrgId()
+    ...
+  } catch (e) {
+    console.log(e)
+    return
+  }
+  ...
+},
+// 调取主应用弹窗
+async getOrgId () {
+  const {
+    getActionSettingValueByConceptId
+  } = this.$root.microAppState // 从主应用获取接口
+  this.winId = await getActionSettingValueByConceptId("399299546") // 调用接口方法获取对应的选项值
+  const obj = {
+    orgId: this.winId
+  }
+  Storage.session.set("buType", JSON.stringify(obj))
+  this.$store.dispatch("user/getBuType", obj)
+}
+```
+
+这里在 `activated`、`deactivated` hook里添加的逻辑是为了保证，当切换回当前菜单时如果没有调用过公共类设置，则重新调用，保证产品连贯性。
+
+__3. ActionSettingEvent.subscribe 介绍__
+
+> 在大HIS产品中，一些公共类的弹窗集中管理在主应用中，比如药品相关的药库的选择，门诊收费相关的收费窗口选择。在上面介绍了调取公共弹窗。那么对公共弹窗的逻辑响应则是通过 `ActionSettingEvent.subscribe` 来添加订阅，这样当公共类的设置改变，主应用自动去执行子应用添加的订阅方法帮助子应用执行更新逻辑。
+
+示例：（药师审方部分代码）
+
+<img src="./imgs/subscribe.jpg" width="720px"/>
+
+这里在 mounted 钩子里添加了订阅，并且在beforeDestory 钩子里删除订阅，这一点非常重要
+
+__4. 退出登陆前，在页面做业务逻辑__
 ```javascript
 // 从主应用获取接口
 const { actionInject } = this.$root.microAppState
@@ -122,4 +173,4 @@ actionInject.register(id, promiseObj)
 
 ### 最后
 
-如需新增功能接口，请联系作者（强峰）
+如需新增功能接口或者有bug，请联系胡佳义（工号：7818）
