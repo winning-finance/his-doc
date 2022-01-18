@@ -7,3 +7,5 @@ dist
 .DS_Store
 
 *.code-workspace
+
+*error.log
