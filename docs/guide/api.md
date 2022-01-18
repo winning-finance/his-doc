@@ -14,6 +14,7 @@
 
 - appSystemId - string 子应用系统ID
 - menuId - String 子应用菜单id
+- bussinessUnit - Object 业务操作单元（当前系统的科室、药房、库房等信息）
 - microAppEntry - String 子应用entry地址(qiankun)
 - microAppName - String 子应用的name(qiankun)
 - EventEmit - Function 发布订阅器,用于和主应用消息通信
@@ -22,6 +23,13 @@
 - actionInject.register - Function 注册退出登陆前需要做的事情
 
 如何使用
+
+### 主应用提供的事件
+
+|  事件名称 | 说明 | 回调参数 |
+|--------|----------|-------------|
+|  his-main:unit-change:xxxx(当前菜单menuId)  |   业务操作单元 change 事件  | state：当前业务操作单元, 具体值：{orgId: "149360816318121989", orgName: "内四科病区" ,orgNo: "13},
+prev：更改前的业务操作单元 |
 
 ### 一. 子应用获取主应用入参数（调用$root）
 
@@ -169,6 +177,23 @@ const { actionInject } = this.$root.microAppState
 * @params { Promise} promiseObj 做业务逻辑的promise 对象
 */
 actionInject.register(id, promiseObj)
+```
+
+__5. 当子应用需要 *bussinessUnit*【业务操作单元】，子应用如何响应。
+
+```javascript
+// 初始化取业务操作单于值
+const {
+  bussinessUnit,
+  EventEmit,
+  menuId
+} = this.$root.microAppState
+const start = (bussinessUnit) => {...}
+// 监听业务操作单元 change 
+EventEmit.$on(`his-main:unit-change:${menuId}`, (state, prev) => {
+  start(state)
+})
+start(bussinessUnit)
 ```
 
 ### 最后
