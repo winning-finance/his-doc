@@ -28,8 +28,7 @@
 
 |  事件名称 | 说明 | 回调参数 |
 |--------|----------|-------------|
-|  his-main:unit-change:xxxx(当前菜单menuId)  |   业务操作单元 change 事件  | state：当前业务操作单元, 具体值：{orgId: "149360816318121989", orgName: "内四科病区" ,orgNo: "13},
-prev：更改前的业务操作单元 |
+|  his-main:unit-change:xxxx(当前菜单menuId)  |   业务操作单元 change 事件  | state：当前业务操作单元, 具体值：{orgId: "149360816318121989", orgName: "内四科病区" ,orgNo: "13},prev：更改前的业务操作单元 |
 
 ### 一. 子应用获取主应用入参数（调用$root）
 
