@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HIS-前端开发手册</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/his-doc/favicon.ico">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/his-doc/assets/css/0.styles.cdf22441.css" as="style"><link rel="preload" href="/his-doc/assets/js/app.2773af9d.js" as="script"><link rel="preload" href="/his-doc/assets/js/2.f33ebbea.js" as="script"><link rel="preload" href="/his-doc/assets/js/20.2021117e.js" as="script"><link rel="prefetch" href="/his-doc/assets/js/10.09ac06b0.js"><link rel="prefetch" href="/his-doc/assets/js/11.3d229d7f.js"><link rel="prefetch" href="/his-doc/assets/js/12.91c2fdff.js"><link rel="prefetch" href="/his-doc/assets/js/13.69ee0054.js"><link rel="prefetch" href="/his-doc/assets/js/14.e75cf550.js"><link rel="prefetch" href="/his-doc/assets/js/15.ad59b1cc.js"><link rel="prefetch" href="/his-doc/assets/js/16.a5346ae4.js"><link rel="prefetch" href="/his-doc/assets/js/17.d0134f62.js"><link rel="prefetch" href="/his-doc/assets/js/18.e361b7a6.js"><link rel="prefetch" href="/his-doc/assets/js/19.020c1ae6.js"><link rel="prefetch" href="/his-doc/assets/js/21.c26195d5.js"><link rel="prefetch" href="/his-doc/assets/js/22.7ad2a222.js"><link rel="prefetch" href="/his-doc/assets/js/23.9eef5f5d.js"><link rel="prefetch" href="/his-doc/assets/js/24.42b7182b.js"><link rel="prefetch" href="/his-doc/assets/js/25.79820aae.js"><link rel="prefetch" href="/his-doc/assets/js/26.4369cb56.js"><link rel="prefetch" href="/his-doc/assets/js/27.831f1e68.js"><link rel="prefetch" href="/his-doc/assets/js/3.435284fb.js"><link rel="prefetch" href="/his-doc/assets/js/4.d14089bb.js"><link rel="prefetch" href="/his-doc/assets/js/5.a2bfff00.js"><link rel="prefetch" href="/his-doc/assets/js/6.1f7a064d.js"><link rel="prefetch" href="/his-doc/assets/js/7.079b7eae.js"><link rel="prefetch" href="/his-doc/assets/js/8.6bab3532.js"><link rel="prefetch" href="/his-doc/assets/js/9.c1dcc7c6.js">
+    <link rel="stylesheet" href="/his-doc/assets/css/0.styles.cdf22441.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><section><div><header class="doc-header"><h2 class="doc-header-logo"><a href="/his-doc/" class="router-link-active"><img src="/his-doc/assets/img/his.647a9dbf.svg" alt=""> <span>前端开发手册</span></a></h2> <ul class="doc-header-nav"><li class="doc-header-nav-item"><a href="/his-doc/guide/" class="doc-header-nav-item-link">
+          指南
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/tool/" class="doc-header-nav-item-link router-link-active">
+          工具
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/standard/" class="doc-header-nav-item-link">
+          规范
+        </a></li></ul></header></div> <main class="doc-main typo doc-main-md"><aside class="doc-aside"><ul class="doc-aside-nav"><li><a href="/his-doc/tool/" class="router-link-active">工具概览</a></li><li><a href="/his-doc/tool/his-cli.html" aria-current="page" class="router-link-exact-active router-link-active">his-cli 脚手架</a></li><li><a href="/his-doc/tool/vue-cli-plugin-his.html">vue-cli 插件</a></li><li><a href="/his-doc/tool/winning-cookie-webpack-plugin.html">webpack 自动登陆插件</a></li><li><a href="/his-doc/tool/his-request.html">his-request 请求</a></li><li><a href="/his-doc/tool/winning-micro-app-service.html">wms 使用文档</a></li><li><a href="/his-doc/tool/winning-dll.html">winning-dll 组件</a></li><li><a href="/his-doc/tool/micro-app.html">@winning/micro-app</a></li><li><a href="/his-doc/tool/hot-key.html">hot-key 热键方案</a></li></ul></aside> <div class="content__default"><h2 id="his-cli-脚手架"><a href="#his-cli-脚手架" class="header-anchor">#</a> his-cli 脚手架</h2> <p>大his脚手架命令，提供模板下载、子应用模板下载、项目更新等相关功能</p> <h3 id="开始使用"><a href="#开始使用" class="header-anchor">#</a> 开始使用</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># Install</span>
+<span class="token comment"># 安装</span>
+<span class="token function">yarn</span> global <span class="token function">add</span> his6.0-cli
+<span class="token comment"># 或者</span>
+<span class="token function">npm</span> <span class="token function">install</span> his6.0-cli -g
+
+<span class="token comment"># Create main app</span>
+<span class="token comment"># 创建新项目</span>
+his create myapp
+
+<span class="token comment"># Start app</span>
+<span class="token comment"># 开始使用</span>
+<span class="token builtin class-name">cd</span> myapp
+<span class="token function">yarn</span> run serve
+</code></pre></div><h3 id="常用命令"><a href="#常用命令" class="header-anchor">#</a> 常用命令</h3> <p>拥有两个常用命令: <code>create</code>, <code>add</code>.</p> <h3 id="create"><a href="#create" class="header-anchor">#</a> create</h3> <p><span title="Create main app with new directory.">创建新项目到指定目录中</span></p> <div class="language-shell extra-class"><pre class="language-shell"><code>his create <span class="token punctuation">[</span>options<span class="token punctuation">]</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#示例</span>
+his create myapp
+his new myapp --demo
+his new myapp --no-install
+</code></pre></div><h4 id="options"><a href="#options" class="header-anchor">#</a> options</h4> <ul><li><code>--demo</code> <span title="Generate a dead simple project for quick prototype">-- 快速生成一个简易的示例原型</span></li> <li><code>--no-install</code> <span title="Disable npm install after files created">-- 创建完成后不自动运行<code>npm install</code></span></li></ul> <h3 id="add"><a href="#add" class="header-anchor">#</a> add</h3> <p><span title="create sub app in main app">在父项目中创建子项目</span></p> <div class="language-shell extra-class"><pre class="language-shell"><code>his <span class="token function">add</span> <span class="token punctuation">[</span>subAppName<span class="token punctuation">]</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 示例</span>
+his <span class="token function">add</span> mySubApp
+</code></pre></div><h3 id="update"><a href="#update" class="header-anchor">#</a> update</h3> <p><span title="create sub app in main app">更新子应用中主应用版本及子应用vue相关配置</span></p> <div class="language-shell extra-class"><pre class="language-shell"><code>his update
+</code></pre></div></div></main> <footer class="doc-footer"></footer></section><div class="global-ui"></div></div>
+    <script src="/his-doc/assets/js/app.2773af9d.js" defer></script><script src="/his-doc/assets/js/2.f33ebbea.js" defer></script><script src="/his-doc/assets/js/20.2021117e.js" defer></script>
+  </body>
+</html>

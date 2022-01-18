@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HIS-前端开发手册</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/his-doc/favicon.ico">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/his-doc/assets/css/0.styles.cdf22441.css" as="style"><link rel="preload" href="/his-doc/assets/js/app.2773af9d.js" as="script"><link rel="preload" href="/his-doc/assets/js/2.f33ebbea.js" as="script"><link rel="preload" href="/his-doc/assets/js/25.79820aae.js" as="script"><link rel="prefetch" href="/his-doc/assets/js/10.09ac06b0.js"><link rel="prefetch" href="/his-doc/assets/js/11.3d229d7f.js"><link rel="prefetch" href="/his-doc/assets/js/12.91c2fdff.js"><link rel="prefetch" href="/his-doc/assets/js/13.69ee0054.js"><link rel="prefetch" href="/his-doc/assets/js/14.e75cf550.js"><link rel="prefetch" href="/his-doc/assets/js/15.ad59b1cc.js"><link rel="prefetch" href="/his-doc/assets/js/16.a5346ae4.js"><link rel="prefetch" href="/his-doc/assets/js/17.d0134f62.js"><link rel="prefetch" href="/his-doc/assets/js/18.e361b7a6.js"><link rel="prefetch" href="/his-doc/assets/js/19.020c1ae6.js"><link rel="prefetch" href="/his-doc/assets/js/20.2021117e.js"><link rel="prefetch" href="/his-doc/assets/js/21.c26195d5.js"><link rel="prefetch" href="/his-doc/assets/js/22.7ad2a222.js"><link rel="prefetch" href="/his-doc/assets/js/23.9eef5f5d.js"><link rel="prefetch" href="/his-doc/assets/js/24.42b7182b.js"><link rel="prefetch" href="/his-doc/assets/js/26.4369cb56.js"><link rel="prefetch" href="/his-doc/assets/js/27.831f1e68.js"><link rel="prefetch" href="/his-doc/assets/js/3.435284fb.js"><link rel="prefetch" href="/his-doc/assets/js/4.d14089bb.js"><link rel="prefetch" href="/his-doc/assets/js/5.a2bfff00.js"><link rel="prefetch" href="/his-doc/assets/js/6.1f7a064d.js"><link rel="prefetch" href="/his-doc/assets/js/7.079b7eae.js"><link rel="prefetch" href="/his-doc/assets/js/8.6bab3532.js"><link rel="prefetch" href="/his-doc/assets/js/9.c1dcc7c6.js">
+    <link rel="stylesheet" href="/his-doc/assets/css/0.styles.cdf22441.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><section><div><header class="doc-header"><h2 class="doc-header-logo"><a href="/his-doc/" class="router-link-active"><img src="/his-doc/assets/img/his.647a9dbf.svg" alt=""> <span>前端开发手册</span></a></h2> <ul class="doc-header-nav"><li class="doc-header-nav-item"><a href="/his-doc/guide/" class="doc-header-nav-item-link">
+          指南
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/tool/" class="doc-header-nav-item-link router-link-active">
+          工具
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/standard/" class="doc-header-nav-item-link">
+          规范
+        </a></li></ul></header></div> <main class="doc-main typo doc-main-md"><aside class="doc-aside"><ul class="doc-aside-nav"><li><a href="/his-doc/tool/" class="router-link-active">工具概览</a></li><li><a href="/his-doc/tool/his-cli.html">his-cli 脚手架</a></li><li><a href="/his-doc/tool/vue-cli-plugin-his.html" aria-current="page" class="router-link-exact-active router-link-active">vue-cli 插件</a></li><li><a href="/his-doc/tool/winning-cookie-webpack-plugin.html">webpack 自动登陆插件</a></li><li><a href="/his-doc/tool/his-request.html">his-request 请求</a></li><li><a href="/his-doc/tool/winning-micro-app-service.html">wms 使用文档</a></li><li><a href="/his-doc/tool/winning-dll.html">winning-dll 组件</a></li><li><a href="/his-doc/tool/micro-app.html">@winning/micro-app</a></li><li><a href="/his-doc/tool/hot-key.html">hot-key 热键方案</a></li></ul></aside> <div class="content__default"><h2 id="vue-cli-插件"><a href="#vue-cli-插件" class="header-anchor">#</a> vue-cli 插件</h2> <p>本节主要介绍插件 <code>vue-cli-plugin-his</code> ，该插件主要功能是扩展 vue-cli-service serve 命令的功能， 升级版本地开发、调试、构建的实现就是此插件。</p> <h3 id="serve-命令扩展-options"><a href="#serve-命令扩展-options" class="header-anchor">#</a> serve 命令扩展 options</h3> <ul><li>--local 本地模式</li></ul> <p>该模式会使用本地 <code>vue</code>、 <code>element-ui</code>、 <code>winning-components</code>, 不依赖 <code>his-main</code>方便调试</p> <p>使用</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>yarn serve <span class="token operator">--</span>local
+</code></pre></div><ul><li>--skip</li></ul> <p>vue-cli-plugin-his 默认提供了自动登陆功能、你可以选择跳过</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>yarn serve <span class="token operator">--</span>skip login
+</code></pre></div><p>vue-cli-plugin-his 默认提供了环境选择功能 在服务启动之前会让你 选择 201、192、195 环境，如果你觉得没必要，可以选择跳过</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>yarn serve <span class="token operator">--</span>skip env
+</code></pre></div><p>同时跳过 自动登陆 和 环境选择</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>yarn serve <span class="token operator">--</span>skip envlogin
+</code></pre></div></div></main> <footer class="doc-footer"></footer></section><div class="global-ui"></div></div>
+    <script src="/his-doc/assets/js/app.2773af9d.js" defer></script><script src="/his-doc/assets/js/2.f33ebbea.js" defer></script><script src="/his-doc/assets/js/25.79820aae.js" defer></script>
+  </body>
+</html>

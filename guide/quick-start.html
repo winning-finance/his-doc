@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HIS-前端开发手册</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/his-doc/favicon.ico">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/his-doc/assets/css/0.styles.cdf22441.css" as="style"><link rel="preload" href="/his-doc/assets/js/app.2773af9d.js" as="script"><link rel="preload" href="/his-doc/assets/js/2.f33ebbea.js" as="script"><link rel="preload" href="/his-doc/assets/js/6.1f7a064d.js" as="script"><link rel="prefetch" href="/his-doc/assets/js/10.09ac06b0.js"><link rel="prefetch" href="/his-doc/assets/js/11.3d229d7f.js"><link rel="prefetch" href="/his-doc/assets/js/12.91c2fdff.js"><link rel="prefetch" href="/his-doc/assets/js/13.69ee0054.js"><link rel="prefetch" href="/his-doc/assets/js/14.e75cf550.js"><link rel="prefetch" href="/his-doc/assets/js/15.ad59b1cc.js"><link rel="prefetch" href="/his-doc/assets/js/16.a5346ae4.js"><link rel="prefetch" href="/his-doc/assets/js/17.d0134f62.js"><link rel="prefetch" href="/his-doc/assets/js/18.e361b7a6.js"><link rel="prefetch" href="/his-doc/assets/js/19.020c1ae6.js"><link rel="prefetch" href="/his-doc/assets/js/20.2021117e.js"><link rel="prefetch" href="/his-doc/assets/js/21.c26195d5.js"><link rel="prefetch" href="/his-doc/assets/js/22.7ad2a222.js"><link rel="prefetch" href="/his-doc/assets/js/23.9eef5f5d.js"><link rel="prefetch" href="/his-doc/assets/js/24.42b7182b.js"><link rel="prefetch" href="/his-doc/assets/js/25.79820aae.js"><link rel="prefetch" href="/his-doc/assets/js/26.4369cb56.js"><link rel="prefetch" href="/his-doc/assets/js/27.831f1e68.js"><link rel="prefetch" href="/his-doc/assets/js/3.435284fb.js"><link rel="prefetch" href="/his-doc/assets/js/4.d14089bb.js"><link rel="prefetch" href="/his-doc/assets/js/5.a2bfff00.js"><link rel="prefetch" href="/his-doc/assets/js/7.079b7eae.js"><link rel="prefetch" href="/his-doc/assets/js/8.6bab3532.js"><link rel="prefetch" href="/his-doc/assets/js/9.c1dcc7c6.js">
+    <link rel="stylesheet" href="/his-doc/assets/css/0.styles.cdf22441.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><section><div><header class="doc-header"><h2 class="doc-header-logo"><a href="/his-doc/" class="router-link-active"><img src="/his-doc/assets/img/his.647a9dbf.svg" alt=""> <span>前端开发手册</span></a></h2> <ul class="doc-header-nav"><li class="doc-header-nav-item"><a href="/his-doc/guide/" class="doc-header-nav-item-link router-link-active">
+          指南
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/tool/" class="doc-header-nav-item-link">
+          工具
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/standard/" class="doc-header-nav-item-link">
+          规范
+        </a></li></ul></header></div> <main class="doc-main typo doc-main-md"><aside class="doc-aside"><ul class="doc-aside-nav"><li><a href="/his-doc/guide/" class="router-link-active">开始</a></li><li><a href="/his-doc/guide/quick-start.html" aria-current="page" class="router-link-exact-active router-link-active">起步</a></li><li><a href="/his-doc/guide/introduction.html">本地开发</a></li><li><a href="/his-doc/guide/config.html">配置</a></li><li><a href="/his-doc/guide/api.html">API 介绍</a></li><li><a href="/his-doc/guide/issues.html">常见问题</a></li></ul></aside> <div class="content__default"><h2 id="起步"><a href="#起步" class="header-anchor">#</a> 起步</h2> <p>本节主要示范在面对一个新的项目，如何一步步生成项目到本地开发</p> <h3 id="流程"><a href="#流程" class="header-anchor">#</a> 流程</h3> <blockquote><p>在前面两节主要讲了，his项目使用的技术方案和本地开发实现思路，为了配合实现这些想法，我们开发了一系列工具，这里主要讲在如何生成一个新的his项目，它主要使用 <code>his-cli</code></p></blockquote> <p>当产品有需求需要新增一个项目时:</p> <p><strong>第一步</strong></p> <p>申请git仓库，这里默认申请了git仓库：winning-web-his-test</p> <p><strong>第二步</strong></p> <p>这里默认你下载了最新的 <code>his-cli</code></p> <div class="language-javascript extra-class"><pre class="language-javascript"><code> his create winning<span class="token operator">-</span>webui<span class="token operator">-</span>his<span class="token operator">-</span>test
+</code></pre></div><p>如果顺利你将看到这个样子</p> <img src="/his-doc/assets/img/project_gen.cc02890c.jpg"> <p>如何 npm 下载失败了也没事，自己进入项目 重新install 就可以了</p> <p><strong>第三步</strong></p> <p>将本地项目 winning-web-his-test push 到 仓库</p> <div class="language-shell extra-class"><pre class="language-shell"><code> <span class="token builtin class-name">cd</span> ./winning-webui-his-test
+ <span class="token function">git</span> remote <span class="token function">add</span> origin url<span class="token punctuation">(</span>git repository address<span class="token punctuation">)</span>
+ <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+ <span class="token function">git</span> commit -m <span class="token string">&quot;init project&quot;</span>
+ <span class="token function">git</span> push -u origin master
+</code></pre></div><p><strong>第四步</strong></p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  npm run serve or yarn serve
+</code></pre></div><p>如果顺利你将看到这个样子, 你可以修改初始化模版，开发自己的业务了</p> <img src="/his-doc/assets/img/temp.b60111c1.jpg"> <p><strong>第五步</strong></p> <p><strong>在新建了一个子项目后，如何高效的本地开发调试成为一个重要问题，请看下一篇 <a href="/his-doc/guide/introduction.html">本地开发</a></strong>。</p> <p>更多配置信息，请查看 <a href="/his-doc/tool/"><code>工具模块</code></a></p></div></main> <footer class="doc-footer"></footer></section><div class="global-ui"></div></div>
+    <script src="/his-doc/assets/js/app.2773af9d.js" defer></script><script src="/his-doc/assets/js/2.f33ebbea.js" defer></script><script src="/his-doc/assets/js/6.1f7a064d.js" defer></script>
+  </body>
+</html>

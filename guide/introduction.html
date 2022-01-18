@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HIS-前端开发手册</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/his-doc/favicon.ico">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/his-doc/assets/css/0.styles.cdf22441.css" as="style"><link rel="preload" href="/his-doc/assets/js/app.2773af9d.js" as="script"><link rel="preload" href="/his-doc/assets/js/2.f33ebbea.js" as="script"><link rel="preload" href="/his-doc/assets/js/15.ad59b1cc.js" as="script"><link rel="prefetch" href="/his-doc/assets/js/10.09ac06b0.js"><link rel="prefetch" href="/his-doc/assets/js/11.3d229d7f.js"><link rel="prefetch" href="/his-doc/assets/js/12.91c2fdff.js"><link rel="prefetch" href="/his-doc/assets/js/13.69ee0054.js"><link rel="prefetch" href="/his-doc/assets/js/14.e75cf550.js"><link rel="prefetch" href="/his-doc/assets/js/16.a5346ae4.js"><link rel="prefetch" href="/his-doc/assets/js/17.d0134f62.js"><link rel="prefetch" href="/his-doc/assets/js/18.e361b7a6.js"><link rel="prefetch" href="/his-doc/assets/js/19.020c1ae6.js"><link rel="prefetch" href="/his-doc/assets/js/20.2021117e.js"><link rel="prefetch" href="/his-doc/assets/js/21.c26195d5.js"><link rel="prefetch" href="/his-doc/assets/js/22.7ad2a222.js"><link rel="prefetch" href="/his-doc/assets/js/23.9eef5f5d.js"><link rel="prefetch" href="/his-doc/assets/js/24.42b7182b.js"><link rel="prefetch" href="/his-doc/assets/js/25.79820aae.js"><link rel="prefetch" href="/his-doc/assets/js/26.4369cb56.js"><link rel="prefetch" href="/his-doc/assets/js/27.831f1e68.js"><link rel="prefetch" href="/his-doc/assets/js/3.435284fb.js"><link rel="prefetch" href="/his-doc/assets/js/4.d14089bb.js"><link rel="prefetch" href="/his-doc/assets/js/5.a2bfff00.js"><link rel="prefetch" href="/his-doc/assets/js/6.1f7a064d.js"><link rel="prefetch" href="/his-doc/assets/js/7.079b7eae.js"><link rel="prefetch" href="/his-doc/assets/js/8.6bab3532.js"><link rel="prefetch" href="/his-doc/assets/js/9.c1dcc7c6.js">
+    <link rel="stylesheet" href="/his-doc/assets/css/0.styles.cdf22441.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><section><div><header class="doc-header"><h2 class="doc-header-logo"><a href="/his-doc/" class="router-link-active"><img src="/his-doc/assets/img/his.647a9dbf.svg" alt=""> <span>前端开发手册</span></a></h2> <ul class="doc-header-nav"><li class="doc-header-nav-item"><a href="/his-doc/guide/" class="doc-header-nav-item-link router-link-active">
+          指南
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/tool/" class="doc-header-nav-item-link">
+          工具
+        </a></li><li class="doc-header-nav-item"><a href="/his-doc/standard/" class="doc-header-nav-item-link">
+          规范
+        </a></li></ul></header></div> <main class="doc-main typo doc-main-md"><aside class="doc-aside"><ul class="doc-aside-nav"><li><a href="/his-doc/guide/" class="router-link-active">开始</a></li><li><a href="/his-doc/guide/quick-start.html">起步</a></li><li><a href="/his-doc/guide/introduction.html" aria-current="page" class="router-link-exact-active router-link-active">本地开发</a></li><li><a href="/his-doc/guide/config.html">配置</a></li><li><a href="/his-doc/guide/api.html">API 介绍</a></li><li><a href="/his-doc/guide/issues.html">常见问题</a></li></ul></aside> <div class="content__default"><h2 id="本地开发"><a href="#本地开发" class="header-anchor">#</a> 本地开发</h2> <p>本节将介绍如何在本地开发调试his项目。</p> <h3 id="问题"><a href="#问题" class="header-anchor">#</a> 问题</h3> <p>在现有方案确定之前，我们的项目基本都是使用 <code>vue-cli</code> 生成的spa项目，基本是 <code>vue</code> 项目开发必用，非常完善，配置也很简单。但在确定了使用微前端的解决方案之后，带来了两个概念：<code>主应用</code> 和 <code>子应用</code>，主应用只有一个，大部分时候我们开发的业务模块都是子应用，子应用也是由主应用加载的，那么问题来了：</p> <p><strong>本地开时如何实现子应用、主应用相结合</strong></p> <h3 id="方案一"><a href="#方案一" class="header-anchor">#</a> 方案一</h3> <p>npm包方式，目前不推荐使用</p> <h4 id="项目结构"><a href="#项目结构" class="header-anchor">#</a> 项目结构</h4> <div class="language- extra-class"><pre class="language-text"><code>├── packages                          # 子应用集合
+│   ├── module1                       # 子应用1
+│   │   └── src                       # 子应用源码
+│   │
+│   ├── module2                       # 子应用2
+│   └── ...                           # 其他子应用
+│                
+├── src                               # 子应用之间通用模块
+│   ├── components                    # 通用组件
+│   └── ...                           # 其他通用模块
+├── service.config.js                 # 配置文件
+</code></pre></div><p>该方案通过 <code>lerna</code> 将多个子应用集合在一个git仓库中，每个子应用完全独立，都拥有自己都 serve、build 等命令，子应之间公用的模块放在根目录 <strong>src</strong> 文件夹下，默认配置 <strong>@@</strong> 指向该文件夹。</p> <p>在该方案下，多个子项目就有多个<code>serve</code>命令，所以本地默认会启动多个serve, 那么核心的主应用在哪里呢，在npm包里，没错，<code>web-his-main</code> 会作为本地开发的依赖被下载，本地开发时默认会启动 web-his-main 的 serve 命令 和 packages 文件夹下所有的 serve 命令。</p> <p>这样，主项目和子项目都有了，然后通过 service.config.js 中的 menu 配置将子项目项目的入口文件换成 本地子项目  serve 入口，这样就完成了主应用和子应用的结合。</p> <h3 id="方案一升级版"><a href="#方案一升级版" class="header-anchor">#</a> 方案一升级版</h3> <p>方案一完美的解决了本地开发子应用、主应用相结合的问题。但是随着使用，也存在诸多问题：</p> <ul><li>为保持 web-his-main 更新，必须频繁同步最新 npm 包</li> <li>依赖管理比较麻烦，packages 下每个模块都要管理依赖（package.jsons）</li> <li>最要命的是 lerna 如果使用不规范，在公司CI平台经常有同事构建出错</li> <li>构建时间较长</li> <li>本地开发占用内存，起太多服务</li> <li>项目根目录下src文件无法配置 eslint ,使用lint 自动修复规范问题</li></ul> <p>为此，我们改变了</p> <ul><li>webpack 打包方式，改单入口为多入口</li> <li>放弃npm包的方式，直接使用代理的方式，代理到线上最新的 his-main</li></ul> <p>升级版的核心原理就是这两条</p> <h4 id="项目结构-2"><a href="#项目结构-2" class="header-anchor">#</a> 项目结构</h4> <div class="language- extra-class"><pre class="language-text"><code>├── src                          # 源码
+│   ├── modules                  # 子应用集合
+│   │   ├── m1                   # 子应用1
+│   │   │   ├── components       # 子应用1组件
+│   │   │   ├── main.js          # 子应用1 入口文件，（非常重要）                   
+│   │   │   └── ...              # 子应用1 其他模块
+│   │   └── ...                   # 其他子应用
+│   │
+│   ├── components                       # 通用组件
+│   └── ...                              # 其他通用模块
+│                
+├── public                               # 子应用之间通用模                           
+├── service.config.js                 # 配置文件
+</code></pre></div><p>该方案改变了构建打包的方式，通过读取 文件 <code>src/modules/**/main.js</code> 作为 webpack 打包的入口文件，实现了本地单个 serve,就能访问到所有子应用，同时本地之间代理到his-main, 不需要本地再起主应用。</p></div></main> <footer class="doc-footer"></footer></section><div class="global-ui"></div></div>
+    <script src="/his-doc/assets/js/app.2773af9d.js" defer></script><script src="/his-doc/assets/js/2.f33ebbea.js" defer></script><script src="/his-doc/assets/js/15.ad59b1cc.js" defer></script>
+  </body>
+</html>
