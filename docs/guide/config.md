@@ -81,6 +81,7 @@ module.exports = {
 
 ```javascript
 cookiePluginOptions: {
+  systemId: '4302475966', // 当前系统的id 药房管理：92387828168931329，门诊管理：4302475966，门诊护士站：108030805591420928，默认为基础业务管理系统
   userInfoParams: {
     loginURL: '/base/api/v1/base/user/login',
     userInfoURL: '/base/api/v1/base/user/get_information',
@@ -94,6 +95,8 @@ cookiePluginOptions: {
   }
 }
 ```
+**说明：**
+
 
 - menu
 
