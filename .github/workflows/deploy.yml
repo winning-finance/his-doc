@@ -27,9 +27,10 @@ jobs:
           url: ${{ secrets.WIN_DINGTALK}}
           type: markdown
           content: |
-            # his-doc开始构建
-            > [点击此处查看](https://github.com/winning-finance/his-doc/actions)
-
+            # Tips
+            ## Hello
+            > from github action message
+            > ^_^
         
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
