@@ -27,9 +27,9 @@ jobs:
           url: ${{ secrets.WIN_DINGTALK}}
           type: markdown
           content: |
-            # his-doc构建
+            ## his-doc构建
             > [点击此处查看构建详情](https://github.com/winning-finance/his-doc/actions)
-            <br>
+            >
             > [文档地址](https://winning-finance.github.io/his-doc/)
         
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
