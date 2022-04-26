@@ -182,7 +182,7 @@ const { actionInject, menuId } = this.$root.microAppState
  * @returns 
  */
 // 关闭菜单前询问
-actionInject.register.CLOSE(menuId, () => {
+actionInject.register.CLOSE(menuId, (done) => {
   this.$confirm('确定关闭菜单吗?', '提示!', {
     type: 'warning'
   }).then(() => {
