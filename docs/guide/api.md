@@ -14,6 +14,7 @@
 
 - appSystemId - string 子应用系统ID
 - menuId - String 子应用菜单id
+- menuName - String 子应用菜单名称
 - bussinessUnit - Object 业务操作单元（当前系统的科室、药房、库房等信息）
 - microAppEntry - String 子应用entry地址(qiankun)
 - microAppName - String 子应用的name(qiankun)
@@ -166,19 +167,56 @@ __3. ActionSettingEvent.subscribe 介绍__
 
 这里在 mounted 钩子里添加了订阅，并且在beforeDestory 钩子里删除订阅，这一点非常重要
 
-__4. 退出登陆前，在页面做业务逻辑__
+__4. 子应用自定义 退出登录、退出系统（混合框架）、关闭菜单 事件的业务逻辑__
+
+示例代码
+
 ```javascript
 // 从主应用获取接口
-const { actionInject } = this.$root.microAppState
-/*
-* @type { Function }
-* @params { String } id 菜单id
-* @params { Promise} promiseObj 做业务逻辑的promise 对象
-*/
-actionInject.register(id, promiseObj)
-```
+const { actionInject, menuId } = this.$root.microAppState
+/**
+ * 
+ * @param {String} id 菜单id
+ * @param {Array | String} actions LOGOUT | QUIT | CLOSE // 动作名称
+ * @param {noop} fn  逻辑方法
+ * @returns 
+ */
+// 关闭菜单前询问
+actionInject.register.CLOSE(menuId, () => {
+  this.$confirm('确定关闭菜单吗?', '提示!', {
+    type: 'warning'
+  }).then(() => {
+    // 确定
+    done() // 执行 done 逻辑
+  }).catch(() => {
+    // 否
+  })
+})
 
-__5. 当子应用需要 *bussinessUnit*【业务操作单元】，子应用如何响应。
+or
+
+actionInject.register(menuId, 'CLOSE', (done) => {
+  this.$confirm('确定关闭菜单吗?', '提示!', {
+    type: 'warning'
+  }).then(() => {
+    // 确定
+    done() // 执行 done 逻辑
+  }).catch(() => {
+    // 否
+  })
+})
+
+```
+register方法参数说明
+
+|  参数  | 说明 | 类型 |
+|--------|----------|-------------|
+| id   | 菜单id       | string |
+| actions   | 动作列表 (LOGOUT：退出登录、 QUIT：退出系统（混合框架）、 CLOSE：关闭菜单) 中的一个或多个         | array 或者 string |
+| fn | 注册的function, 接收 done 方法, fn(done) ,需要使用箭头函数 | Function |
+
+
+__5. 当子应用需要 *bussinessUnit*【业务操作单元】，子应用如何响应。__
 
 ```javascript
 // 初始化取业务操作单于值
