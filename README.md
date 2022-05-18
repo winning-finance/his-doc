@@ -17,7 +17,7 @@
 
 ## 如何部署
 
-- github 上的部署，直接运行 deploy.sh
+- ~~github 上的部署，直接运行 deploy.sh~~ github直接提交即可，workflow自动构建
 - docker 可以使用 start.sh
 
 ## 注意
