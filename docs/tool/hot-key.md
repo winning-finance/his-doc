@@ -53,7 +53,7 @@ router.afterEach(() => {
 
 > :warning: 默认情况下，在指令所在的元素不存在与 dom 上时，快捷键的调用将不会生效，如需生效，请添加 always
 
-> :warning: 如果组件在多个微应用中有应用，并且需要保持快捷键的统一，请添加 component。否则每个页面将独立维护各自的快捷键
+> :warning: 快捷键会通过查询元素上是否有 disabled 属性并且值为 disabled 判断不触发，不过仍建议自己在回调函数中处理 disabled 逻辑
 
 ### 参数说明
 
