@@ -74,9 +74,9 @@ __2. 隐藏主应用侧边栏、header 等__
 
 ```javascript
 // 隐藏
-EventEmit.$emit('SHOW_HIS_SIDE', false)
+EventEmit.$emit('HIDE_HIS_SIDE', true)
 // 展示
-EventEmit.$emit('SHOW_HIS_SIDE', true)
+EventEmit.$emit('HIDE_HIS_SIDE', false)
 ```
 
 __3. 获取/设置大his页面设置项公共弹窗__
