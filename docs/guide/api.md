@@ -70,7 +70,16 @@ EventEmit.$emit('OPEN_HIS_MENU', url, '#/scheduleDetail?tab=0')
 __开发环境__:
 由于开发环境中配置的微应用的entry为http:localhost:xxxx,因此要想在开发环境中查看效果，则需要将URL换成需要跳转的菜单的开发环境入口URL
 
-__2. 获取/设置大his页面设置项公共弹窗__
+__2. 隐藏主应用侧边栏、header 等__
+
+```javascript
+// 隐藏
+EventEmit.$emit('SHOW_HIS_SIDE', false)
+// 展示
+EventEmit.$emit('SHOW_HIS_SIDE', true)
+```
+
+__3. 获取/设置大his页面设置项公共弹窗__
 
 >大his框架下，各子页面的设置项由主应用统一设置，子应用如需获取，需要调用主应用提供的方法  `getActionSettingValueByConceptId`
 
